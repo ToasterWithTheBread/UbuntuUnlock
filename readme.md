@@ -21,5 +21,7 @@ then you should add a call to the URL (Inhalte von URL abrufen) with a GET reque
 
 ## Routes
 **http://[your-tailscale-ip]:1000/**
+
 **http://[your-tailscale-ip]:1000/unlock?code=[your-unique-code]**
+
 **http://[your-tailscale-ip]:1000/lock?code=[your-unique-code]**
