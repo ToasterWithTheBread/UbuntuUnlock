@@ -6,6 +6,7 @@ const exec = require('child_process').exec;
 const app = express()
 
 var port = parseInt(process.env.PORT) || 3000
+var session_id = parseInt(process.env.SESSION_ID) || 2
 var lock_command = process.env.LOCK_COMMAND || "loginctl lock-session"
 var unlock_command = process.env.UNLOCK_COMMAND || "loginctl unlock-session"
 var unique_code = process.env.UNIQUE_CODE || 1234
@@ -26,7 +27,7 @@ app.get('/unlock', (req, res) => {
         status: "Unlocked computer"
     })
 
-    exec(unlock_command, function (error, stdout, stderr) {
+    exec(`${unlock_command} ${session_id}`, function (error, stdout, stderr) {
         console.log(`Unlocking computer at ${Date.now()}`)
 
         if (error) {
@@ -51,7 +52,7 @@ app.get('/lock', (req, res) => {
         status: "Locked computer"
     })
 
-    exec(lock_command, function (error, stdout, stderr) {
+    exec(`${lock_command} ${session_id}`, function (error, stdout, stderr) {
         console.log(`Locking computer at ${Date.now()}`)
 
         if (error) {
