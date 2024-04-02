@@ -34,15 +34,19 @@ fi
 echo "Installing required materials..."
 npm install
 
+# Save before starting
+pm2 save
+
 # Start service using pm2
 echo "Starting UbuntuUnlock using pm2..."
 pm2 start UbuntuUnlock.js
 
 # Save current pm2 process list
-pm2 save
+pm2 save --force
 
 # Set pm2 to startup on system boot
-sudo pm2 startup systemd
+env_line=$(pm2 startup | grep "env")
+eval "$env_line"
 
 # Let user know that we are good
 echo "UbuntuUnlock installed successfully."
