@@ -6,7 +6,7 @@ const exec = require('child_process').exec;
 const app = express()
 
 var port = parseInt(process.env.PORT) || 3000
-var session_id = parseInt(process.env.SESSION_ID) || 2
+var session_id = parseInt(process.env.SESSION_ID) || console.error("No session ID passed! continuing without one")
 var lock_command = process.env.LOCK_COMMAND || "loginctl lock-session"
 var unlock_command = process.env.UNLOCK_COMMAND || "loginctl unlock-session"
 var unique_code = process.env.UNIQUE_CODE || 1234
