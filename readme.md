@@ -20,8 +20,8 @@ You should purchase NFC tags, then if you have an iPhone create a new Kurzbefehl
 then you should add a call to the URL (Inhalte von URL abrufen) with a GET request.
 
 ## Routes
-**http://[your-tailscale-ip]:1000/**
+**http://[your-tailscale-ip]:1234/**
 
-**http://[your-tailscale-ip]:1000/unlock?code=[your-unique-code]**
+**http://[your-tailscale-ip]:1234/unlock?code=[your-unique-code]**
 
-**http://[your-tailscale-ip]:1000/lock?code=[your-unique-code]**
+**http://[your-tailscale-ip]:1234/lock?code=[your-unique-code]**
